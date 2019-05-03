@@ -99,7 +99,7 @@ public class GameControllerTest
 	}
 
 	@Test
-	@WithMockUser ( username = "adminTest", password = "adminTest" )
+	@WithMockUser ( username = "adminTest", password = "adminTest", roles = { "ADMIN" } )
 	public void test_createGame () throws Exception
 	{
 		Game game = Game.builder ()
@@ -126,7 +126,7 @@ public class GameControllerTest
 	}
 
 	@Test
-	@WithMockUser ( username = "adminTest", password = "adminTest" )
+	@WithMockUser ( username = "adminTest", password = "adminTest", roles = { "ADMIN" } )
 	public void test_updateGame () throws Exception
 	{
 		Game game = Game.builder ()

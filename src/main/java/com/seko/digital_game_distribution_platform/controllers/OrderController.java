@@ -3,12 +3,14 @@ package com.seko.digital_game_distribution_platform.controllers;
 import com.seko.digital_game_distribution_platform.models.Order;
 import com.seko.digital_game_distribution_platform.services.OrderService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping ( "/orders" )
+@Secured ( "ROLE_USER" )
 public class OrderController
 {
 	private final OrderService orderService;

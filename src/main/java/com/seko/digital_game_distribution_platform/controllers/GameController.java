@@ -3,6 +3,7 @@ package com.seko.digital_game_distribution_platform.controllers;
 import com.seko.digital_game_distribution_platform.models.Game;
 import com.seko.digital_game_distribution_platform.services.GameService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class GameController
 
 	@DeleteMapping ( "/{id}" )
 	@ResponseStatus ( HttpStatus.NO_CONTENT )
+	@Secured ( "ROLE_ADMIN" )
 	public void delete ( @PathVariable Long id )
 	{
 		this.gameService.delete ( id );
@@ -36,6 +38,7 @@ public class GameController
 
 	@PostMapping
 	@ResponseStatus ( HttpStatus.CREATED )
+	@Secured ( "ROLE_ADMIN" )
 	public Game create ( @RequestBody Game game )
 	{
 		return this.gameService.create ( game );
@@ -43,6 +46,7 @@ public class GameController
 
 	@PutMapping ( "/{id}" )
 	@ResponseStatus ( HttpStatus.OK )
+	@Secured ( "ROLE_ADMIN" )
 	public Game update ( @PathVariable Long id, @RequestBody Game game )
 	{
 		return this.gameService.update ( id, game );
