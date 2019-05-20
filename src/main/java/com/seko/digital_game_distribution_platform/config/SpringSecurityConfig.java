@@ -29,10 +29,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
 				.and ()
 				.authorizeRequests ()
 				.anyRequest ()
-				.permitAll ()
-				.and ()
-				.formLogin ()
-				.and ()
-				.logout ();
+				.permitAll ();
+				//.and ()
+				//.formLogin ()
+				//.and ()
+				//.logout ();
 	}
 }

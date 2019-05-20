@@ -47,11 +47,8 @@ public class Game
 	@Size ( max = 25 )
 	private String version;
 
-	@ElementCollection ( targetClass = Platform.class )
-	@Enumerated ( EnumType.STRING )
-	@CollectionTable ( name = "game_platforms" )
-	@Column ( name = "platform" )
-	private Set<Platform> platformSet;
+	@NotBlank
+	private String platform;
 
 	@Temporal ( TemporalType.DATE )
 	@PastOrPresent

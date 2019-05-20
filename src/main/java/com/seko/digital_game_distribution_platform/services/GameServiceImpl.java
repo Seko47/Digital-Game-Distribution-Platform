@@ -51,7 +51,7 @@ public class GameServiceImpl implements GameService
 			gameToUpdate.setAuthor ( game.getAuthor () );
 			gameToUpdate.setPathToImage ( game.getPathToImage () );
 			gameToUpdate.setPathToSetupFile ( game.getPathToSetupFile () );
-			gameToUpdate.setPlatformSet ( game.getPlatformSet () );
+			gameToUpdate.setPlatform ( game.getPlatform () );
 			gameToUpdate.setPrice ( game.getPrice () );
 			gameToUpdate.setReleaseDate ( game.getReleaseDate () );
 			gameToUpdate.setVersion ( game.getVersion () );

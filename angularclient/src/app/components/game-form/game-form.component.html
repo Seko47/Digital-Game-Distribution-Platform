@@ -1,0 +1,80 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #gameForm="ngForm">
+      <div class="form-label-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="game.name" class="form-control"
+               id="name" name="name" required #name="ngModel"
+               placeholder="Name">
+      </div>
+      <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+
+      <div class="form-label-group">
+        <label for="description">Description</label>
+        <input type="text" [(ngModel)]="game.description" class="form-control"
+               id="description" name="description" required #description="ngModel"
+               placeholder="Description">
+      </div>
+      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+
+      <div class="form-label-group">
+        <label for="pathToImage">Path to image</label>
+        <input type="text" [(ngModel)]="game.pathToImage" class="form-control"
+               id="pathToImage" name="pathToImage" required #pathToImage="ngModel"
+               placeholder="Path to image">
+      </div>
+      <div [hidden]="!pathToImage.pristine" class="alert alert-danger">Path to image is required</div>
+
+      <div class="form-label-group">
+        <label for="pathToSetupFile">Path to setup file</label>
+        <input type="text" [(ngModel)]="game.pathToSetupFile" class="form-control"
+               id="pathToSetupFile" name="pathToSetupFile" required #pathToSetupFile="ngModel"
+               placeholder="Path to setup file">
+      </div>
+      <div [hidden]="!pathToSetupFile.pristine" class="alert alert-danger">Path to setup file is required</div>
+
+      <div class="form-label-group">
+        <label for="author">Author</label>
+        <input type="text" [(ngModel)]="game.author" class="form-control"
+               id="author" name="author" required #author="ngModel"
+               placeholder="Author">
+      </div>
+      <div [hidden]="!author.pristine" class="alert alert-danger">Author is required</div>
+
+      <div class="form-label-group">
+        <label for="version">Version</label>
+        <input type="text" [(ngModel)]="game.version" class="form-control"
+               id="version" name="version" required #version="ngModel"
+               placeholder="Version">
+      </div>
+      <div [hidden]="!version.pristine" class="alert alert-danger">Version is required</div>
+
+      <div class="form-label-group">
+        <label for="platform">Platform</label>
+        <input type="text" [(ngModel)]="game.platform" class="form-control"
+               id="platform" name="platform" required #platform="ngModel"
+               placeholder="Platform [eg. WINDOWS, LINUX, MACOS]">
+      </div>
+      <div [hidden]="!platform.pristine" class="alert alert-danger">Platform is required</div>
+
+
+      <div class="form-label-group">
+        <label for="releaseDate">Release date</label>
+        <input type="date" [(ngModel)]="game.releaseDate" class="form-control"
+               id="releaseDate" name="releaseDate" required #releaseDate="ngModel"
+               placeholder="Release date">
+      </div>
+      <div [hidden]="!releaseDate.pristine" class="alert alert-danger">Release date is required</div>
+
+      <div class="form-label-group">
+        <label for="price">Price</label>
+        <input type="text" [(ngModel)]="game.price" class="form-control"
+               id="price" name="price" required #price="ngModel"
+               placeholder="Price">
+      </div>
+      <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>
+
+      <button type="submit" [disabled]="!gameForm.form.valid" class="btn btn-success">Save</button>
+    </form>
+  </div>
+</div>

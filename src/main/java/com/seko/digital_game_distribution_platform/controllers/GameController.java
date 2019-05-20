@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping ( "/games" )
+@CrossOrigin(origins = "http://localhost:4200")
 public class GameController
 {
 	private final GameService gameService;
@@ -17,12 +18,22 @@ public class GameController
 	public GameController ( GameService gameService ) {this.gameService = gameService;}
 
 	@GetMapping
+
+
+	@Secured ( "ROLE_ADMIN" )
+
+
 	public List<Game> findAll ()
 	{
 		return this.gameService.findAll ();
 	}
 
 	@GetMapping ( "/{id}" )
+
+
+	@Secured ( "ROLE_ADMIN" )
+
+
 	public Game findById ( @PathVariable Long id )
 	{
 		return this.gameService.findById ( id );

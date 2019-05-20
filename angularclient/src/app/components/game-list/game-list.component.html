@@ -1,0 +1,20 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let game of games">
+        <td>{{game.id}}</td>
+        <td>{{game.name}}</td>
+        <td><img src="{{game.pathToImage}}" alt="Game image" /></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

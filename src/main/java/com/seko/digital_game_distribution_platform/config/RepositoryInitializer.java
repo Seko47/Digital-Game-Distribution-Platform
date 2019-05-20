@@ -77,7 +77,7 @@ public class RepositoryInitializer
 						.pathToSetupFile ( "https://notepad-plus-plus.org/repository/7.x/7.6.6/npp.7.6.6.Installer.x64.exe" )
 						.author ( "Ubisoft" )
 						.version ( "1.4" )
-						.platformSet ( new HashSet<> ( Collections.singleton ( Game.Platform.WINDOWS ) ) )
+						.platform ( Game.Platform.WINDOWS.name () )
 						.releaseDate ( new Date () )
 						.price ( new BigDecimal ( 200 ) )
 						.build () );
@@ -89,7 +89,7 @@ public class RepositoryInitializer
 						.pathToSetupFile ( "https://notepad-plus-plus.org/repository/7.x/7.6.6/npp.7.6.6.Installer.x64.exe" )
 						.author ( "Paradox Interactive" )
 						.version ( "1.2" )
-						.platformSet ( new HashSet<> ( Collections.singleton ( Game.Platform.WINDOWS ) ) )
+						.platform(  Game.Platform.WINDOWS.name () )
 						.releaseDate ( new Date () )
 						.price ( new BigDecimal ( 240 ) )
 						.build () );
