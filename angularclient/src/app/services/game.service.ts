@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Game} from "../models/game";
 import {Observable} from "rxjs";
@@ -13,22 +13,21 @@ export class GameService {
     this.gamesUrl = 'http://localhost:8080/games';
   }
 
-  public findAll(): Observable<Game[]>{
-
-    if(sessionStorage.getItem('token') == null || sessionStorage.getItem('token') == '')
-    {
-      this.router.navigate(['/login']);
-    }
-
+  public findAll(): Observable<Game[]> {
     let headers: HttpHeaders = new HttpHeaders({
-      'Authorization': 'Basic '+sessionStorage.getItem('token')
+      'Authorization': 'Basic ' + sessionStorage.getItem('token')
     });
 
     let options = {headers: headers};
     return this.http.get<Game[]>(this.gamesUrl, options);
   }
 
-  public save(game: Game){
-    return this.http.post<Game>(this.gamesUrl, game);
-  }
+  public save(game: Game) {
+    let headers: HttpHeaders = new HttpHeaders({
+      'Authorization': 'Basic ' + sessionStorage.getItem('token')
+    });
+
+    let options = {headers: headers};
+    return this.http.post<Game>(this.gamesUrl, game, options);
+  }g
 }

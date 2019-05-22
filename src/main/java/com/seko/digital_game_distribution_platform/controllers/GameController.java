@@ -18,22 +18,12 @@ public class GameController
 	public GameController ( GameService gameService ) {this.gameService = gameService;}
 
 	@GetMapping
-
-
-	@Secured ( "ROLE_ADMIN" )
-
-
 	public List<Game> findAll ()
 	{
 		return this.gameService.findAll ();
 	}
 
 	@GetMapping ( "/{id}" )
-
-
-	@Secured ( "ROLE_ADMIN" )
-
-
 	public Game findById ( @PathVariable Long id )
 	{
 		return this.gameService.findById ( id );

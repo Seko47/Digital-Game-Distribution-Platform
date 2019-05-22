@@ -1,80 +1,51 @@
-<div class="card my-5">
-  <div class="card-body">
-    <form (ngSubmit)="onSubmit()" #gameForm="ngForm">
-      <div class="form-label-group">
-        <label for="name">Name</label>
-        <input type="text" [(ngModel)]="game.name" class="form-control"
-               id="name" name="name" required #name="ngModel"
-               placeholder="Name">
-      </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Add game</strong>
+  </h5>
+  <div class="card-body px-lg-5 pt-0">
+    <form class="md-form" style="color: #757575;" (ngSubmit)="onSubmit()" name="gameForm" #gameForm="ngForm" novalidate>
+      <input type="text" id="name" name="name" class="form-control" placeholder="Name"
+             [(ngModel)]="game.name" #name="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !name.valid">Name is required</div>
 
-      <div class="form-label-group">
-        <label for="description">Description</label>
-        <input type="text" [(ngModel)]="game.description" class="form-control"
-               id="description" name="description" required #description="ngModel"
-               placeholder="Description">
-      </div>
-      <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
+      <input type="text" id="description" name="description" class="form-control" placeholder="Description"
+             [(ngModel)]="game.description" #description="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !description.valid">Description is required</div>
 
-      <div class="form-label-group">
-        <label for="pathToImage">Path to image</label>
-        <input type="text" [(ngModel)]="game.pathToImage" class="form-control"
-               id="pathToImage" name="pathToImage" required #pathToImage="ngModel"
-               placeholder="Path to image">
-      </div>
-      <div [hidden]="!pathToImage.pristine" class="alert alert-danger">Path to image is required</div>
+      <input type="text" id="pathToImage" name="pathToImage" class="form-control" placeholder="Path to image"
+             [(ngModel)]="game.pathToImage" #pathToImage="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !pathToImage.valid">Path to image is required</div>
 
-      <div class="form-label-group">
-        <label for="pathToSetupFile">Path to setup file</label>
-        <input type="text" [(ngModel)]="game.pathToSetupFile" class="form-control"
-               id="pathToSetupFile" name="pathToSetupFile" required #pathToSetupFile="ngModel"
-               placeholder="Path to setup file">
-      </div>
-      <div [hidden]="!pathToSetupFile.pristine" class="alert alert-danger">Path to setup file is required</div>
+      <input type="text" id="pathToSetupFile" name="pathToSetupFile" class="form-control"
+             placeholder="Path to setup file"
+             [(ngModel)]="game.pathToSetupFile" #pathToSetupFile="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !pathToSetupFile.valid">Path to setup file is required</div>
 
-      <div class="form-label-group">
-        <label for="author">Author</label>
-        <input type="text" [(ngModel)]="game.author" class="form-control"
-               id="author" name="author" required #author="ngModel"
-               placeholder="Author">
-      </div>
-      <div [hidden]="!author.pristine" class="alert alert-danger">Author is required</div>
+      <input type="text" id="author" name="author" class="form-control" placeholder="Author"
+             [(ngModel)]="game.author" #author="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !author.valid">Author is required</div>
 
-      <div class="form-label-group">
-        <label for="version">Version</label>
-        <input type="text" [(ngModel)]="game.version" class="form-control"
-               id="version" name="version" required #version="ngModel"
-               placeholder="Version">
-      </div>
-      <div [hidden]="!version.pristine" class="alert alert-danger">Version is required</div>
+      <input type="text" id="version" name="version" class="form-control" placeholder="Version"
+             [(ngModel)]="game.version" #version="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !version.valid">Version is required</div>
 
-      <div class="form-label-group">
-        <label for="platform">Platform</label>
-        <input type="text" [(ngModel)]="game.platform" class="form-control"
-               id="platform" name="platform" required #platform="ngModel"
-               placeholder="Platform [eg. WINDOWS, LINUX, MACOS]">
-      </div>
-      <div [hidden]="!platform.pristine" class="alert alert-danger">Platform is required</div>
+      <input type="text" id="platform" name="platform" class="form-control" placeholder="Platform"
+             [(ngModel)]="game.platform" #platform="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !platform.valid">Platform is required</div>
 
+      <input type="date" id="releaseDate" name="releaseDate" class="form-control" placeholder="Release date"
+             [(ngModel)]="game.releaseDate" #releaseDate="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !releaseDate.valid">Release date is required</div>
 
-      <div class="form-label-group">
-        <label for="releaseDate">Release date</label>
-        <input type="date" [(ngModel)]="game.releaseDate" class="form-control"
-               id="releaseDate" name="releaseDate" required #releaseDate="ngModel"
-               placeholder="Release date">
-      </div>
-      <div [hidden]="!releaseDate.pristine" class="alert alert-danger">Release date is required</div>
+      <input type="number" id="price" name="price" class="form-control" placeholder="Price" min="0" step="0.01"
+             [(ngModel)]="game.price" #price="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !price.valid">Price is required</div>
+      <div *ngIf="price.value < 0">Price is too low</div>
 
-      <div class="form-label-group">
-        <label for="price">Price</label>
-        <input type="text" [(ngModel)]="game.price" class="form-control"
-               id="price" name="price" required #price="ngModel"
-               placeholder="Price">
-      </div>
-      <div [hidden]="!price.pristine" class="alert alert-danger">Price is required</div>
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+              [disabled]="!gameForm.form.valid" type="submit">Add
+      </button>
 
-      <button type="submit" [disabled]="!gameForm.form.valid" class="btn btn-success">Save</button>
     </form>
   </div>
 </div>

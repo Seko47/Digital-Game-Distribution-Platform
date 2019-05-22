@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           btoa(this.model.username + ':' + this.model.password)
         );
         alert("Authentication success");
-        this.router.navigate(['']);
+        this.router.navigate(['/games']);
       } else {
         alert("Authentication failed");
       }

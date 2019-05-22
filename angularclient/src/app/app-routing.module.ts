@@ -6,7 +6,7 @@ import {LoginComponent} from "./components/login/login.component";
 
 const routes: Routes = [
   {path: "games", component: GameListComponent},
-  {path: "addgame", component: GameFormComponent},
+  {path: "games/add", component: GameFormComponent},
   {path: "login", component: LoginComponent}
 ];
 

@@ -1,25 +1,26 @@
-<form name="form" (ngSubmit)="login()" #loginForm="ngForm" novalidate>
-  <div [ngClass]="{ 'has-error': loginForm.submitted && !username.valid }">
-    <label for="username">Username</label>
-    <input type="text"
-           id="username"
-           class="form-control"
-           name="username" [(ngModel)]="model.username"
-           #username="ngModel" required />
-    <div *ngIf="loginForm.submitted
-          && !username.valid">Username is required</div>
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Sign in</strong>
+  </h5>
+  <div class="card-body px-lg-5 pt-0">
+    <form class="md-form" style="color: #757575;" (ngSubmit)="login()" name="loginForm" #loginForm="ngForm" novalidate>
+
+      <input type="text" id="username" name="username" class="form-control" placeholder="Login"
+             [(ngModel)]="model.username" #username="ngModel" required="required">
+      <div *ngIf="loginForm.submitted && !username.valid">Username is required</div>
+
+      <input type="password" id="password" name="password" class="form-control mb-4" placeholder="Password"
+             [(ngModel)]="model.password" #password="ngModel" required="required">
+      <div *ngIf="loginForm.submitted && !password.valid">Password is required</div>
+
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+              [disabled]="!loginForm.form.valid" type="submit">Sign in
+      </button>
+      <div class="text-center">
+        <p>Not a member?
+          <a routerLink="/register">Register</a>
+        </p>
+      </div>
+    </form>
   </div>
-  <div [ngClass]="{ 'has-error': loginForm.submitted && !password.valid }">
-    <label for="password">Password</label>
-    <input type="password"
-           id="password"
-           class="form-control"
-           name="password" [(ngModel)]="model.password"
-           #password="ngModel" required />
-    <div *ngIf="loginForm.submitted
-          && !password.valid">Password is required</div>
-  </div>
-  <div>
-    <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-success">Login</button>
-  </div>
-</form>
+</div>
