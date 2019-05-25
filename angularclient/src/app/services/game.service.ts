@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
 @Injectable()
 export class GameService {
 
-  private gamesUrl: string;
+  gamesUrl: string;
 
   constructor(private router: Router, private http: HttpClient) {
     this.gamesUrl = 'http://localhost:8080/games';

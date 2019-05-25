@@ -10,7 +10,7 @@
       <li class="nav-item">
         <a class="nav-link waves-effect waves-light" routerLink="/library">Library</a>
       </li>
-      <li class="nav-item dropdown">
+      <li *ngIf="authService.hasAdminRole()" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">Admin panel</a>
         <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
@@ -20,12 +20,17 @@
         </div>
       </li>
     </ul>
-    <ul class="navbar-nav ml-auto">
+    <ul *ngIf="!authService.isLogged()" class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link waves-effect waves-light" routerLink="/login">Sign in</a>
       </li>
       <li class="nav-item">
         <a class="nav-link waves-effect waves-light" routerLink="/register">Sign up</a>
+      </li>
+    </ul>
+    <ul *ngIf="authService.isLogged()" class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light" routerLink="/logout">Sign out</a>
       </li>
     </ul>
   </div>
