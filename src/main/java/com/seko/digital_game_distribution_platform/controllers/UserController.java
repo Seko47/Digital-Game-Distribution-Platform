@@ -28,17 +28,18 @@ public class UserController
     public boolean login ( @RequestBody User user )
     {
         UserDetails userDetails = this.userService.loadUserByUsername ( user.getUsername () );
-        return user.getUsername ()
+        return userDetails != null && user.getUsername ()
                 .equals ( userDetails.getUsername () ) && passwordEncoder.matches ( user.getPassword (), userDetails.getPassword () );
     }
 
     @RequestMapping ( "/register" )
     public void register ( @RequestBody User user )
     {
-        this.userService.save(user);
+        this.userService.save ( user );
     }
 
     @RequestMapping ( "/user" )
+    @ResponseBody
     public Principal user ( HttpServletRequest request )
     {
         String authToken = request.getHeader ( "Authorization" )

@@ -17,28 +17,24 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    sessionStorage.removeItem('token');
-    localStorage.removeItem('adminRole');
+    this.auth.logout();
   }
 
   login() {
-    let url = 'http://localhost:8080/login';
-    this.http.post<Observable<boolean>>(url, {
-      username: this.model.username,
-      password: this.model.password
-    }).subscribe(isValid => {
+    this.auth.login(this.model.username, this.model.password).subscribe(isValid => {
       if (isValid) {
         sessionStorage.setItem(
           'token',
           btoa(this.model.username + ':' + this.model.password)
         );
         this.auth.fetchAdminRole();
+        localStorage.setItem('username', this.model.username);
         alert("Authentication success");
         this.router.navigate(['/games']);
       } else {
         alert("Authentication failed");
       }
-    });
+    }, () => alert("Authentication failed"));
   }
 
 }
