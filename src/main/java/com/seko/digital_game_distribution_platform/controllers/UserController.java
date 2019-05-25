@@ -33,9 +33,10 @@ public class UserController
     }
 
     @RequestMapping ( "/register" )
-    public void register ( @RequestBody User user )
+    @ResponseBody
+    public User register ( @RequestBody User user )
     {
-        this.userService.save ( user );
+        return this.userService.save ( user );
     }
 
     @RequestMapping ( "/user" )

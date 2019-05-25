@@ -11,5 +11,5 @@ public interface UserService extends UserDetailsService
 
     Boolean isUser ();
 
-    void save ( User user );
+    User save ( User user );
 }

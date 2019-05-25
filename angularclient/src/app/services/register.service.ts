@@ -12,6 +12,6 @@ export class RegisterService {
   }
 
   public save(user: User) {
-    this.http.post('http://localhost:8080/register', user).subscribe(result => alert(result), error1 => alert(error1));
+    return this.http.post<User>('http://localhost:8080/register', user);
   }
 }

@@ -1,0 +1,25 @@
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Add game</strong>
+  </h5>
+  <div class="card-body px-lg-5 pt-0">
+    <form class="md-form" style="color: #757575;" (ngSubmit)="onSubmit()" name="userForm" #userForm="ngForm" novalidate>
+      <input type="text" id="username" name="username" class="form-control" placeholder="Username"
+             [(ngModel)]="user.username" #username="ngModel" required="required">
+      <div *ngIf="userForm.submitted && !username.valid">Username is required</div>
+
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+             [(ngModel)]="user.password" #password="ngModel" required="required">
+      <div *ngIf="userForm.submitted && !password.valid">Password is required</div>
+
+      <input type="email" id="email" name="email" class="form-control" placeholder="Email"
+             [(ngModel)]="user.email" #email="ngModel" required="required">
+      <div *ngIf="userForm.submitted && !email.valid">Email is required</div>
+
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+              [disabled]="!userForm.form.valid" type="submit">Register
+      </button>
+
+    </form>
+  </div>
+</div>

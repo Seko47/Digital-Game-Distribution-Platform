@@ -70,11 +70,12 @@ public class UserServiceImpl implements UserService
     }
 
     @Override
-    public void save ( User user )
+    public User save ( User user )
     {
         user.setEnabled ( true );
         user.setRoleSet ( new HashSet<> ( Collections.singletonList ( this.roleRepository.findById ( 2L )
                 .orElse ( null ) ) ) );
-        this.userRepository.save ( user );
+        user.setPassword ( this.passwordEncoder.encode ( user.getPassword () ) );
+        return this.userRepository.save ( user );
     }
 }
