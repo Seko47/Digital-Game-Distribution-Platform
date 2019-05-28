@@ -14,12 +14,7 @@ export class GameService {
   }
 
   public findAll(): Observable<Game[]> {
-    let headers: HttpHeaders = new HttpHeaders({
-      'Authorization': 'Basic ' + sessionStorage.getItem('token')
-    });
-
-    let options = {headers: headers};
-    return this.http.get<Game[]>(this.gamesUrl, options);
+    return this.http.get<Game[]>(this.gamesUrl);
   }
 
   public findByID(id: number): Observable<Game> {

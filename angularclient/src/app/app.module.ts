@@ -12,6 +12,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { GameCreateComponent } from './components/game-create/game-create.component';
 import { GameEditComponent } from './components/game-edit/game-edit.component';
 import { GameDeleteComponent } from './components/game-delete/game-delete.component';
+import { GameShopComponent } from './components/game-shop/game-shop.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GameDeleteComponent } from './components/game-delete/game-delete.compon
     RegisterComponent,
     GameCreateComponent,
     GameEditComponent,
-    GameDeleteComponent
+    GameDeleteComponent,
+    GameShopComponent
   ],
   imports: [
     BrowserModule,

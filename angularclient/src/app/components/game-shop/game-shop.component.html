@@ -1,0 +1,18 @@
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Shop</strong>
+  </h5>
+  <div class="card-group">
+    <div *ngFor="let game of games" class="card">
+      <img class="card-img-top ml-auto mr-auto" style="width: 200px;" src="{{game.pathToImage}}"
+           alt="{{game.name}} image">
+      <div class="card-body">
+        <h5 class="card-title">{{game.name}}</h5>
+        <p class="card-text">{{game.description}}</p>
+      </div>
+      <div class="card-footer text-center">
+        <a class="btn btn-primary" routerLink="/games/{{game.id}}" role="button">More</a>
+      </div>
+    </div>
+  </div>
+</div>

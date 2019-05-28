@@ -14,8 +14,8 @@
       <div *ngIf="loginForm.submitted && !password.valid">Password is required</div>
 
       <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
-              [disabled]="!loginForm.form.valid" type="submit">Sign in
-      </button>
+                       [disabled]="!loginForm.form.valid" type="submit">Sign in
+    </button>
       <div class="text-center">
         <p>Not a member?
           <a routerLink="/register">Register</a>
