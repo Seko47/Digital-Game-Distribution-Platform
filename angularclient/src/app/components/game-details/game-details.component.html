@@ -1,0 +1,26 @@
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>{{game.name}}</strong>
+  </h5>
+  <div class="card-group">
+    <div class="card">
+      <img class="card-img-top ml-auto mr-auto" style="width: 200px;" src="{{game.pathToImage}}"
+           alt="{{game.name}} image">
+      <div class="card-body">
+        <h5 class="card-title">{{game.description}}</h5>
+        <p><small class="text-muted">Platform: {{game.platform}}</small></p>
+        <p><small class="text-muted">Author: {{game.author}}</small></p>
+        <p><small class="text-muted">Release date: {{game.releaseDate}}</small></p>
+        <p><small class="text-muted">Version: {{game.version}}</small></p>
+      </div>
+      <div class="card-footer text-center">
+        <a *ngIf="auth.isLogged() && !purchased" class="btn btn-success" routerLink="/games/buy/{{game.id}}"
+           role="button">Buy ({{game.price}} PLN)</a>
+        <a *ngIf="auth.isLogged() && purchased" class="btn btn-info"
+           href="{{game.pathToSetupFile}}"
+           role="button" target="_blank">Download</a>
+        <a *ngIf="!auth.isLogged()" class="btn btn-primary" routerLink="/login" role="button">Login</a>
+      </div>
+    </div>
+  </div>
+</div>

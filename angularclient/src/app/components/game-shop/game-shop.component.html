@@ -2,8 +2,8 @@
   <h5 class="card-header info-color white-text text-center py-4">
     <strong>Shop</strong>
   </h5>
-  <div class="card-group">
-    <div *ngFor="let game of games" class="card">
+  <div class="card-deck">
+    <div *ngFor="let game of games" class="card" style="min-width: 200px">
       <img class="card-img-top ml-auto mr-auto" style="width: 200px;" src="{{game.pathToImage}}"
            alt="{{game.name}} image">
       <div class="card-body">

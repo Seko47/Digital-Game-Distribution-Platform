@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping ( "/orders" )
 @Secured ( "ROLE_USER" )
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderController
 {
 	private final OrderService orderService;

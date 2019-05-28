@@ -1,4 +1,7 @@
-<div class="card my-5">
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Games list</strong>
+  </h5>
   <div class="card-body">
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
@@ -14,7 +17,7 @@
       <tr *ngFor="let game of games">
         <td>{{game.id}}</td>
         <td>{{game.name}}</td>
-        <td><img src="{{game.pathToImage}}" alt="Game image"/></td>
+        <td><img src="{{game.pathToImage}}" alt="Game image" style="width: 200px;"/></td>
         <td>{{game.platform}}</td>
         <td><a class="badge badge-primary" routerLink="/admin/games/delete/{{game.id}}">Delete</a></td>
         <td><a class="badge badge-warning" routerLink="/admin/games/edit/{{game.id}}">Edit</a></td>
