@@ -1,0 +1,51 @@
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Edit game</strong>
+  </h5>
+  <div class="card-body px-lg-5 pt-0">
+    <form class="md-form" style="color: #757575;" (ngSubmit)="onSubmit()" name="gameForm" #gameForm="ngForm" novalidate>
+      <input type="text" id="name" name="name" class="form-control" placeholder="Name"
+             [(ngModel)]="game.name" #name="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !name.valid">Name is required</div>
+
+      <input type="text" id="description" name="description" class="form-control" placeholder="Description"
+             [(ngModel)]="game.description" #description="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !description.valid">Description is required</div>
+
+      <input type="text" id="pathToImage" name="pathToImage" class="form-control" placeholder="Path to image"
+             [(ngModel)]="game.pathToImage" #pathToImage="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !pathToImage.valid">Path to image is required</div>
+
+      <input type="text" id="pathToSetupFile" name="pathToSetupFile" class="form-control"
+             placeholder="Path to setup file"
+             [(ngModel)]="game.pathToSetupFile" #pathToSetupFile="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !pathToSetupFile.valid">Path to setup file is required</div>
+
+      <input type="text" id="author" name="author" class="form-control" placeholder="Author"
+             [(ngModel)]="game.author" #author="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !author.valid">Author is required</div>
+
+      <input type="text" id="version" name="version" class="form-control" placeholder="Version"
+             [(ngModel)]="game.version" #version="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !version.valid">Version is required</div>
+
+      <input type="text" id="platform" name="platform" class="form-control" placeholder="Platform"
+             [(ngModel)]="game.platform" #platform="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !platform.valid">Platform is required</div>
+
+      <input type="date" id="releaseDate" name="releaseDate" class="form-control" placeholder="Release date"
+             [(ngModel)]="game.releaseDate" #releaseDate="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !releaseDate.valid">Release date is required</div>
+
+      <input type="number" id="price" name="price" class="form-control" placeholder="Price" min="0" step="0.01"
+             [(ngModel)]="game.price" #price="ngModel" required="required">
+      <div *ngIf="gameForm.submitted && !price.valid">Price is required</div>
+      <div *ngIf="price.value < 0">Price is too low</div>
+
+      <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+              [disabled]="!gameForm.form.valid" type="submit">Save
+      </button>
+
+    </form>
+  </div>
+</div>

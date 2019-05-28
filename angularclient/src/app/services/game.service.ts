@@ -22,6 +22,15 @@ export class GameService {
     return this.http.get<Game[]>(this.gamesUrl, options);
   }
 
+  public findByID(id: number): Observable<Game> {
+    let headers: HttpHeaders = new HttpHeaders({
+      'Authorization': 'Basic ' + sessionStorage.getItem('token')
+    });
+
+    let options = {headers: headers};
+    return this.http.get<Game>(this.gamesUrl + "/" + id, options);
+  }
+
   public save(game: Game) {
     let headers: HttpHeaders = new HttpHeaders({
       'Authorization': 'Basic ' + sessionStorage.getItem('token')
@@ -29,5 +38,17 @@ export class GameService {
 
     let options = {headers: headers};
     return this.http.post<Game>(this.gamesUrl, game, options);
-  }g
+  }
+
+  g
+
+  public update(game: Game) {
+    let headers: HttpHeaders = new HttpHeaders({
+      'Authorization': 'Basic ' + sessionStorage.getItem('token')
+    });
+
+    let options = {headers: headers};
+
+    return this.http.put<Game>(this.gamesUrl + "/" + game.id, game, options);
+  }
 }

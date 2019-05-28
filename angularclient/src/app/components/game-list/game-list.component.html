@@ -6,13 +6,17 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Image</th>
+        <th scope="col">Platform</th>
+        <th scope="col" colspan="2">Options</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let game of games">
         <td>{{game.id}}</td>
         <td>{{game.name}}</td>
-        <td><img src="{{game.pathToImage}}" alt="Game image" /></td>
+        <td><img src="{{game.pathToImage}}" alt="Game image"/></td>
+        <td>{{game.platform}}</td>
+        <td><a class="badge badge-warning" routerLink="/admin/games/edit/{{game.id}}">Edit</a></td>
       </tr>
       </tbody>
     </table>

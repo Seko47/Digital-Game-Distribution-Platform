@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
+import {Game} from "../../models/game";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GameService} from "../../services/game.service";
-import {Game} from "../../models/game";
 
 @Component({
-  selector: 'app-game-form',
-  templateUrl: './game-form.component.html',
-  styleUrls: ['./game-form.component.css']
+  selector: 'app-game-create',
+  templateUrl: './game-create.component.html',
+  styleUrls: ['./game-create.component.css']
 })
-export class GameFormComponent implements OnInit {
+export class GameCreateComponent implements OnInit {
 
   game: Game;
 
@@ -21,9 +21,10 @@ export class GameFormComponent implements OnInit {
   }
 
   gotoGameList() {
-    this.router.navigate(['/games']);
+    this.router.navigate(['admin/games']);
   }
 
   ngOnInit() {
   }
+
 }
