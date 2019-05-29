@@ -8,6 +8,7 @@ import {GameEditComponent} from "./components/game-edit/game-edit.component";
 import {GameDeleteComponent} from "./components/game-delete/game-delete.component";
 import {GameShopComponent} from "./components/game-shop/game-shop.component";
 import {GameDetailsComponent} from "./components/game-details/game-details.component";
+import {GameLibraryComponent} from "./components/game-library/game-library.component";
 
 const routes: Routes = [
   {path: "admin/games", component: GameListComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: "register", component: RegisterComponent},
   {path: "admin/games/delete/:id", component: GameDeleteComponent},
   {path: "games", component: GameShopComponent},
-  {path: "games/:id", component: GameDetailsComponent}
+  {path: "games/:id", component: GameDetailsComponent},
+  {path: "library", component: GameLibraryComponent}
 ];
 
 @NgModule({

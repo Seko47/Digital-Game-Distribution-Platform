@@ -1,0 +1,21 @@
+<div class="container card mt-3">
+  <h5 class="card-header info-color white-text text-center py-4">
+    <strong>Library</strong>
+  </h5>
+  <div class="card-deck">
+    <div *ngFor="let order of orders" class="card mt-2" style="min-width: 200px">
+      <img class="card-img-top ml-auto mr-auto" style="width: 200px;" src="{{order.game.pathToImage}}"
+           alt="{{order.game.name}} image">
+      <div class="card-body">
+        <h5 class="card-title">{{order.game.name}}</h5>
+        <p class="card-text">{{order.game.description}}</p>
+        </div>
+      <div class="card-footer text-center">
+        <hr>
+        <p class="card-text">Purchased: {{order.orderDate | date: 'dd.MM.yyyy HH:mm:ss'}}</p>
+
+        <a class="btn btn-primary" routerLink="/games/{{order.game.id}}" role="button">More</a>
+      </div>
+    </div>
+  </div>
+</div>
