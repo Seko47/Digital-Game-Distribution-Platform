@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: "logout", component: LoginComponent},
   {path: "register", component: RegisterComponent},
   {path: "admin/games/delete/:id", component: GameDeleteComponent},
-  {path: "games", component: GameShopComponent},
+  {path: "", component: GameShopComponent},
   {path: "games/:id", component: GameDetailsComponent},
   {path: "library", component: GameLibraryComponent}
 ];

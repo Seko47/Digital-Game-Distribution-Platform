@@ -26,10 +26,24 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/js/mdb.min.js"></script>
 
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        $("#navbar").slideDown();
+        $("#footer").slideDown();
+      } else {
+        $("#navbar").slideUp();
+        $("#footer").slideUp();
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
 
 
 </head>
-<body>
+<body style="padding-top: 50px; padding-bottom: 60px">
 <app-root></app-root>
 </body>
 </html>
