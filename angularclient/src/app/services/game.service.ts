@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Game} from "../models/game";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {Order} from "../models/order";
 
 @Injectable()
 export class GameService {
@@ -58,5 +59,15 @@ export class GameService {
     let options = {headers: headers};
 
     return this.http.get<boolean>("http://localhost:8080/orders/has/" + id, options);
+  }
+
+  public buy(id: number) {
+    let headers: HttpHeaders = new HttpHeaders({
+      'Authorization': 'Basic ' + sessionStorage.getItem('token')
+    });
+
+    let options = {headers: headers};
+
+    return this.http.get<Order>("http://localhost:8080/orders/buy/" + id, options);
   }
 }

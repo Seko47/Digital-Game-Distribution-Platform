@@ -28,4 +28,9 @@ export class GameDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  buy() {
+    this.gameService.buy(this.id).subscribe(result=>{this.purchased = true; alert("purchased");}, error1 => alert("error"));
+  }
+
+
 }
