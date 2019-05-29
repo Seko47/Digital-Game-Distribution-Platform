@@ -22,9 +22,9 @@
         </p>
       </div>
       <div class="card-footer text-center">
-        <a *ngIf="auth.isLogged() && !purchased" class="btn btn-success" (click)="buy()"
+        <a *ngIf="auth.isLogged() && !purchased" class="btn btn-primary" (click)="buy()"
            role="button">Buy ({{game.price}} PLN)</a>
-        <a *ngIf="auth.isLogged() && purchased" class="btn btn-info"
+        <a *ngIf="auth.isLogged() && purchased" class="btn btn-success"
            href="{{game.pathToSetupFile}}"
            role="button" target="_blank">Download</a>
         <a *ngIf="!auth.isLogged()" class="btn btn-primary" routerLink="/login" role="button">Login</a>

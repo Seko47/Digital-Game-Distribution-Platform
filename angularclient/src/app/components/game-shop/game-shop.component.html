@@ -11,7 +11,8 @@
         <p class="card-text">{{game.description}}</p>
       </div>
       <div class="card-footer text-center">
-        <a class="btn btn-primary" routerLink="/games/{{game.id}}" role="button">More</a>
+        <a *ngIf="!game.purchased" class="btn btn-primary" routerLink="/games/{{game.id}}" role="button">More</a>
+        <a *ngIf="game.purchased" class="btn btn-success" routerLink="/games/{{game.id}}" role="button">More (Purchased)</a>
       </div>
     </div>
   </div>

@@ -9,4 +9,5 @@ export class Game {
   platform: string;
   releaseDate: string;
   price: number;
+  purchased: boolean;
 }
