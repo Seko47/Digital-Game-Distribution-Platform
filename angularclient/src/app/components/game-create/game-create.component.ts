@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Game} from "../../models/game";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GameService} from "../../services/game.service";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-game-create',
@@ -12,7 +13,11 @@ export class GameCreateComponent implements OnInit {
 
   game: Game;
 
-  constructor(private route: ActivatedRoute, private router: Router, private gameService: GameService) {
+  constructor(private route: ActivatedRoute, private router: Router, private gameService: GameService, private auth: AuthService) {
+    if(!auth.hasAdminRole())
+    {
+      router.navigate(['/']);
+    }
     this.game = new Game();
   }
 

@@ -8,8 +8,8 @@
              [(ngModel)]="game.name" #name="ngModel" required="required">
       <div *ngIf="gameForm.submitted && !name.valid">Name is required</div>
 
-      <input type="text" id="description" name="description" class="form-control" placeholder="Description"
-             [(ngModel)]="game.description" #description="ngModel" required="required">
+      <textarea type="text" id="description" name="description" class="form-control" placeholder="Description"
+                [(ngModel)]="game.description" #description="ngModel" required="required"></textarea>
       <div *ngIf="gameForm.submitted && !description.valid">Description is required</div>
 
       <input type="text" id="pathToImage" name="pathToImage" class="form-control" placeholder="Path to image"
@@ -30,7 +30,7 @@
       <div *ngIf="gameForm.submitted && !version.valid">Version is required</div>
 
       <input type="text" id="platform" name="platform" class="form-control" placeholder="Platform"
-             [(ngModel)]="game.platform" #platform="ngModel" required="required">
+             [(ngModel)]="game.platform" #platform="ngModel" required="required" title="Np. WINDOWS LINUX MACOS itp. itd">
       <div *ngIf="gameForm.submitted && !platform.valid">Platform is required</div>
 
       <input type="date" id="releaseDate" name="releaseDate" class="form-control" placeholder="Release date"

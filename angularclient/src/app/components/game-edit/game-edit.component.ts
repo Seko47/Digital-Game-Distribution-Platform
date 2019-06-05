@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Game} from "../../models/game";
 import {ActivatedRoute, Router} from "@angular/router";
 import {GameService} from "../../services/game.service";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-game-edit',
@@ -13,11 +14,15 @@ export class GameEditComponent implements OnInit {
   game: Game;
   id: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private gameService: GameService) {
+  constructor(private route: ActivatedRoute, private router: Router, private gameService: GameService, private auth: AuthService) {
+    if(!auth.hasAdminRole())
+    {
+      this.gotoGameList();
+    }
   }
 
   onSubmit() {
-    this.gameService.update(this.game).subscribe(result => this.gotoGameList(), result => alert("Failed to edit game"));
+    this.gameService.update(this.game).subscribe(result => {alert("Saved"); this.gotoGameList()}, error => alert("Failed to edit game"));
   }
 
   gotoGameList() {

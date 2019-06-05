@@ -29,12 +29,12 @@ export class LoginComponent implements OnInit {
         );
         this.auth.fetchAdminRole();
         localStorage.setItem('username', this.model.username);
-        alert("Authentication success");
-        this.router.navigate(['/games']);
+        alert("You are logged in");
+        this.router.navigate(['/']);
       } else {
-        alert("Authentication failed");
+        alert("Invalid login and/or password");
       }
-    }, () => alert("Authentication failed"));
+    }, () => alert("Invalid login and/or password"));
   }
 
 }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Game} from "../../models/game";
 import {GameService} from "../../services/game.service";
+import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth/auth.service";
 
 @Component({
   selector: 'app-game-list',
@@ -11,7 +13,11 @@ export class GameListComponent implements OnInit {
 
   games: Game[];
 
-  constructor(private gameService: GameService) {
+  constructor(private gameService: GameService, private router: Router, private auth: AuthService) {
+    if(!auth.hasAdminRole())
+    {
+      router.navigate(['/']);
+    }
   }
 
   ngOnInit() {

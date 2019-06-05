@@ -29,7 +29,7 @@ export class GameDetailsComponent implements OnInit {
   }
 
   buy() {
-    this.gameService.buy(this.id).subscribe(result=>{this.purchased = true; alert("purchased");}, error1 => alert("error"));
+    this.gameService.buy(this.id).subscribe(result=>{this.purchased = true; alert("Purchased");}, error1 => alert("You can't buy that game now"));
   }
 
 

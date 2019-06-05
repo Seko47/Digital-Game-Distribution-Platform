@@ -7,11 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface OrderRepository extends JpaRepository<Order, Long>
+public interface OrderRepository extends JpaRepository< Order, Long >
 {
-	List<Order> findAllByUser ( User user );
+    List< Order > findAllByUser ( User user );
 
-	Order findByGameAndUser ( Game game, User user );
+    Order findByGameAndUser ( Game game, User user );
 
-	Order findByIdAndUser ( Long id, User user );
+    Order findByIdAndUser ( Long id, User user );
+
+    void deleteAllByGame ( Game game );
 }
